@@ -1,8 +1,6 @@
-use lucky_tickets::simple_solver;
-
-
+use lucky_tickets::{simple_solver_for_six, simple_solver_for_ten};
 
 fn main() {
-    println!("Hello, world!");
-    simple_solver();
+    println!("{} билетов", simple_solver_for_six());
+    // println!("{} билетов", simple_solver_for_ten());
 }
