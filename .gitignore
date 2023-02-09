@@ -4,6 +4,7 @@ debug/
 target/
 balovstvo/
 Harry_Potter_Square-1801-d49c3d/
+A01_Счастливые_билеты-1801-057a77/
 # Remove Cargo.lock from gitignore if creating an executable, leave it for libraries
 # More information here https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
 Cargo.lock
