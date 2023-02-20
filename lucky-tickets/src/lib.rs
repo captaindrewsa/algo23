@@ -20,8 +20,8 @@ pub fn simple_solver_for_six() -> i32 {
 
     return count;
 }
-// Ественственно он не работает)
 pub fn simple_solver_for_ten() -> i32 {
+    // Ественственно он не работает)
     let mut count = 0;
     for a1 in 0..=9 {
         for a2 in 0..=9 {
@@ -53,19 +53,22 @@ pub fn simple_solver_for_ten() -> i32 {
 }
 
 fn test_recursion_for_lucky_ticket(count_of_number_in_ticket: u32) -> i32 {
+    
+    let mut count_of_lucky_tickets = 0;
+
     /*
     Create collection for return
      */
     /* Create stack
     and add first item */
-    while true
+    loop
     /* Stack isn't null */
     {
         /*
         Take one thing from stack
         if base case - add some(item) to collection and continue
         if none-base case - add some(item) to stack
-        */
+        */ 
     }
 
     return 312;
