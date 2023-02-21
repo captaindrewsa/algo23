@@ -1,9 +1,6 @@
 class SingleArray():
     array = []
-
-    def __init__(self) -> None:
-        super().__init__()
-
+    
     def add(self, item, idx):
         if self.array.__len__() == 0:
             new_array = [ None for _ in range(idx+1)]
@@ -39,7 +36,7 @@ class SingleArray():
             print("Index out of range")
     
     def remove(self, idx):
-        if idx< self.array.__len__() & idx>=0:
+        if self.array.__len__()>idx & idx>=0:
             new_array = [None for _ in range(self.array.__len__()-1)]
             tmp_item = self.array[idx]
             tmp_idx = 0
@@ -93,21 +90,38 @@ class VectorArray():
         else:
             print("Index out of range")
 
+    def remove(self, idx):
+        if self.array.__len__()>idx & idx>=0:
+            new_array = [None for _ in range(self.array.__len__()-1)]
+            tmp_item = self.array[idx]
+            tmp_idx = 0
+            for elem in self.array:
+                if idx == tmp_idx:
+                    tmp_idx+=1
+                    continue
+                else:
+                    new_array[tmp_idx-1] = elem
+                    tmp_idx+=1
+            self.array = new_array
+            return tmp_item
+        else:
+            return IndexError
 
 
-b = VectorArray()
-b.add("dog",0)
-b.add("cat", 2)
-b.add("parrot", 5)
-b.add("OLYA", 2)
+# b = VectorArray()
+# b.add("dog",0)
+# b.add("cat", 2)
+# b.add("parrot", 5)
+# b.add("OLYA", 2)
+# print(b.remove(0))
+# print(b.array)
 
-
-print(b.array)
 
 # a = SingleArray()
 # a.add("dog",2)
 # a.add("cat", 4)
 # a.add("parrot", 5)
 # a.add("OLYA", 2)
-# print(a.remove(10))
+# print(a.array)
+# print(a.remove(2))
 # print(a.array)
