@@ -1,11 +1,4 @@
-class IArray:
-    def add(item, idx):
-        pass
-
-    def remove(idx):
-        pass
-
-class SingleArray(IArray):
+class SingleArray():
     array = []
 
     def __init__(self) -> None:
@@ -32,7 +25,7 @@ class SingleArray(IArray):
             self.array = new_array
         
         elif self.array.__len__() > idx >= 0:
-            new_array = [None for _ in range(self.array.__len__()+1)]
+            new_array = [None for _ in range(self.array.__len__())]
             tmp_idx = 0
             for elem in self.array:
                 if tmp_idx != idx:
@@ -46,7 +39,21 @@ class SingleArray(IArray):
             print("Index out of range")
     
     def remove(self, idx):
-        print("World")
+        if idx< self.array.__len__() & idx>=0:
+            new_array = [None for _ in range(self.array.__len__()-1)]
+            tmp_item = self.array[idx]
+            tmp_idx = 0
+            for elem in self.array:
+                if idx == tmp_idx:
+                    tmp_idx+=1
+                    continue
+                else:
+                    new_array[tmp_idx-1] = elem
+                    tmp_idx+=1
+            self.array = new_array
+            return tmp_item
+        else:
+            return IndexError
 
 
 a = SingleArray()
@@ -54,4 +61,5 @@ a.add("dog",2)
 a.add("cat", 4)
 a.add("parrot", 5)
 a.add("OLYA", 2)
+print(a.remove(10))
 print(a.array)
