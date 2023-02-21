@@ -36,7 +36,7 @@ class SingleArray():
             print("Index out of range")
     
     def remove(self, idx):
-        if self.array.__len__()>idx & idx>=0:
+        if self.array.__len__()>idx and idx>=0:
             new_array = [None for _ in range(self.array.__len__()-1)]
             tmp_item = self.array[idx]
             tmp_idx = 0
@@ -91,7 +91,7 @@ class VectorArray():
             print("Index out of range")
 
     def remove(self, idx):
-        if self.array.__len__()>idx & idx>=0:
+        if self.array.__len__()>idx and idx>=0:
             new_array = [None for _ in range(self.array.__len__()-1)]
             tmp_item = self.array[idx]
             tmp_idx = 0
@@ -107,6 +107,74 @@ class VectorArray():
         else:
             return IndexError
 
+class FactorArray():
+    array = []
+    size_coeff = 2
+
+    def add(self, item, idx):
+        if self.array.__len__() == 0:
+            new_array = [ None for _ in range(idx*self.size_coeff)]
+            new_array[idx] = item
+            self.array = new_array
+        
+        elif self.array.__len__()-1 < idx:
+            new_array = [ None for _ in range(idx*self.size_coeff)]
+            tmp_idx = 0
+            for elem in self.array:
+                new_array[tmp_idx] = elem
+                tmp_idx+=1
+
+            for _ in range(idx - self.array.__len__()):
+                new_array[tmp_idx] = None
+                tmp_idx+=1
+
+            new_array[tmp_idx] = item
+            self.array = new_array
+        
+        elif self.array.__len__() > idx >= 0:
+            new_array = [None for _ in range(self.array.__len__())]
+            tmp_idx = 0
+            for elem in self.array:
+                if tmp_idx != idx:
+                    new_array[tmp_idx] = elem
+                    tmp_idx+=1
+                else:
+                    new_array[tmp_idx] = item
+                    tmp_idx+=1
+            self.array = new_array
+        else:
+            print("Index out of range")
+
+    def remove(self, idx):
+        if self.array.__len__()>idx and idx>=0:
+            new_array = [None for _ in range(self.array.__len__()-1)]
+            tmp_item = self.array[idx]
+            tmp_idx = 0
+            for elem in self.array:
+                if idx == tmp_idx:
+                    tmp_idx+=1
+                    continue
+                else:
+                    new_array[tmp_idx-1] = elem
+                    tmp_idx+=1
+            self.array = new_array
+            return tmp_item
+        else:
+            return IndexError 
+
+class MatrixArray():
+    pointer_arary = [[]]
+    
+    
+
+
+# c = VectorArray()
+# c.add("dog",0)
+# c.add("cat", 2)
+# c.add("parrot", 5)
+# c.add("OLYA", 2)
+# print(c.remove(0))
+# print(c.array)
 
 # b = VectorArray()
 # b.add("dog",0)
