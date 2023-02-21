@@ -163,10 +163,30 @@ class FactorArray():
             return IndexError 
 
 class MatrixArray():
-    pointer_arary = [[]]
+    # Учитывая, что переменные в python - ссылки, то можно просто хранить список переменных, в которых лежат списки с данными
+    pointer_arary = []
+    max_size_data_array = 10
     
     
+#  [0   [0  1  2  3  4  5  6  7  8  9]      
+#  1    [10 11 12 13 14 15 16 17 18 19]
+#  2]   [20 21 22 23 24 25 26 27 28 29]    
 
+    def add(self, item, idx):    
+        if self.pointer_arary.__len__() == 0:
+            tmp = 0
+            while tmp<=idx//self.max_size_data_array:
+                data_array = [None for _ in range(self.max_size_data_array)]
+                
+                tmp+=1
+            
+
+
+
+
+    def remove(self, idx):
+        return 200
+    
 
 # c = VectorArray()
 # c.add("dog",0)
