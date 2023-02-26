@@ -113,7 +113,7 @@ class FactorArray():
 
     def add(self, item, idx):
         if self.array.__len__() == 0:
-            new_array = [ None for _ in range(idx*self.size_coeff)]
+            new_array = [ None for _ in range((idx+1)*self.size_coeff)]
             new_array[idx] = item
             self.array = new_array
         
@@ -150,12 +150,11 @@ class FactorArray():
             new_array = [None for _ in range(self.array.__len__()-1)]
             tmp_item = self.array[idx]
             tmp_idx = 0
-            for elem in self.array:
-                if idx == tmp_idx:
-                    tmp_idx+=1
+            for main_idx in range(self.array.__len__()):
+                if tmp_idx == main_idx == idx:
                     continue
                 else:
-                    new_array[tmp_idx-1] = elem
+                    new_array[tmp_idx] = self.array[main_idx]
                     tmp_idx+=1
             self.array = new_array
             return tmp_item
@@ -163,7 +162,7 @@ class FactorArray():
             return IndexError 
 
 class MatrixArray():
-    # Учитывая, что переменные в python - ссылки, то можно просто хранить список переменных, в которых лежат списки с данными
+    # Учитывая, что переменные в python - ссылки, то можно просто хранить список переменных, которые отсылают списки с данными
     pointer_arary = []
     max_size_data_array = 10
     
@@ -188,13 +187,14 @@ class MatrixArray():
         return 200
     
 
-# c = VectorArray()
-# c.add("dog",0)
-# c.add("cat", 2)
-# c.add("parrot", 5)
-# c.add("OLYA", 2)
-# print(c.remove(0))
-# print(c.array)
+c = FactorArray()
+c.add("dog",0)
+c.add("cat", 1)
+c.add("parrot", 2)
+c.add("OLYA", 9)
+print(c.array)
+print(c.remove(0))
+print(c.array)
 
 # b = VectorArray()
 # b.add("dog",0)
