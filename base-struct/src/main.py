@@ -173,6 +173,7 @@ class MatrixArray():
 
     def add(self, item, idx):    
         if self.pointer_arary.__len__() == 0:
+            # Создание хранилища с нуля и вставка в нужное место
             tmp = 0
             while tmp<=idx//self.max_size_data_array:
                 self.apepnd_new_layer()
@@ -181,11 +182,13 @@ class MatrixArray():
         
         elif self.pointer_arary.__len__()+self.max_size_data_array < idx:
             # Сделать добавление недостающих слоев и вставку в нужное место
-            pass
-        
+            for _ in range(idx//self.max_size_data_array+1 - self.pointer_arary.__len__()):
+                self.apepnd_new_layer()
+            self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
+            
         elif self.pointer_arary.__len__()+self.max_size_data_array > idx >= 0:
             # Сделать вставку в нуные координаты
-            pass
+            self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
 
         else:
             print("Index out of range")
@@ -207,7 +210,7 @@ class MatrixArray():
 d =MatrixArray()
 # print(d.pointer_arary)
 d.add("dog", 0)
-# d.add("cat", 12)
+d.add("cat", 24)
 print(d.pointer_arary)
 
 
