@@ -187,14 +187,22 @@ class MatrixArray():
             self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
             
         elif self.pointer_arary.__len__()+self.max_size_data_array > idx >= 0:
-            # Сделать вставку в нуные координаты
+            # Сделать вставку в нужные координаты
+            tmp_idx = 0
+            for _ in range(self.pointer_arary.__len__()*self.max_size_data_array+1):
+                if tmp_idx==idx:
+                    # TODO
+                    pass
+                else:
+                    # TODO
+                    pass
             self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
 
         else:
             print("Index out of range")
 
     def remove(self, idx):
-        return 200
+        pass
     
     def apepnd_new_layer(self):
         new_layer = [None for _ in range(self.max_size_data_array)]
@@ -210,7 +218,7 @@ class MatrixArray():
 d =MatrixArray()
 # print(d.pointer_arary)
 d.add("dog", 0)
-d.add("cat", 24)
+d.add("cat", 13)
 print(d.pointer_arary)
 
 
