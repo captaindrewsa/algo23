@@ -186,18 +186,34 @@ class MatrixArray():
                 self.apepnd_new_layer()
             self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
             
-        elif self.pointer_arary.__len__()+self.max_size_data_array > idx >= 0:
+        elif self.pointer_arary.__len__()*self.max_size_data_array > idx >= 0:
             # Сделать вставку в нужные координаты
-            tmp_idx = 0
-            for _ in range(self.pointer_arary.__len__()*self.max_size_data_array+1):
-                if tmp_idx==idx:
-                    # TODO
-                    pass
-                else:
-                    # TODO
-                    pass
-            self.pointer_arary[idx//self.max_size_data_array][idx%self.max_size_data_array] = item
-
+            # tmp_new_pointer_array = [[None for _ in range(self.max_size_data_array)] for _ in range(self.pointer_arary.__len__())]
+            # tmp_idx = 0
+            # for new_main_idx in range(self.pointer_arary.__len__()*self.max_size_data_array+1):
+            #     if tmp_idx== idx == new_main_idx:
+            #         tmp_new_pointer_array[new_main_idx//self.max_size_data_array][new_main_idx%self.max_size_data_array] = item
+            #     else:
+            #         try:
+            #             tmp_new_pointer_array[new_main_idx//self.max_size_data_array][new_main_idx%self.max_size_data_array] = self.pointer_arary[tmp_idx//self.max_size_data_array][tmp_idx%self.max_size_data_array] 
+            #         except IndexError:
+            #             if self.pointer_arary[tmp_idx//self.max_size_data_array][tmp_idx%self.max_size_data_array] == None:
+            #                 continue
+            #             else:
+            #                 # Добавление нового слоя в конец
+            #                 new_layer = [None for _ in range(self.max_size_data_array)]
+            #                 new_pointer_array = [None for _ in range(tmp_new_pointer_array.__len__()+1) ]
+            #                 tmp2_idx = 0
+            #                 for elem in tmp_new_pointer_array:
+            #                     new_pointer_array[tmp2_idx]= elem
+            #                     tmp2_idx+=1
+            #                 new_pointer_array[tmp2_idx]=new_layer
+                            
+            #                 new_pointer_array[new_pointer_array.__len__()] = [None for _ in range(self.max_size_data_array)]
+            #                 new_pointer_array[new_main_idx//self.max_size_data_array][new_main_idx%self.max_size_data_array] = self.pointer_arary[tmp_idx//self.max_size_data_array][tmp_idx%self.max_size_data_array]
+            # self.pointer_arary = new_pointer_array
+            # IT DOESN'T WORK
+            pass
         else:
             print("Index out of range")
 
@@ -218,7 +234,8 @@ class MatrixArray():
 d =MatrixArray()
 # print(d.pointer_arary)
 d.add("dog", 0)
-d.add("cat", 13)
+d.add("cat", 7)
+# d.add("cat", 13)
 print(d.pointer_arary)
 
 
