@@ -35,12 +35,11 @@ pub fn knight_move(pos: u32)-> u64{
     let knight_no_g: u64 = 0xbfbfbfbfbfbfbfbf & knight_position;
     let knight_no_h: u64 = 0x7f7f7f7f7f7f7f7f & knight_position;
 
-    println!("{:#?}", vec![knight_no_a,knight_no_b,knight_no_g,knight_no_h]);
 
     let move_mask = 
-                    (knight_no_a>>15)|(knight_no_h>>17)|
-    (knight_no_b>>6)                 |                 (knight_no_g>>10)|               
-    (knight_no_b<<10)                |                 (knight_no_g<<6)|
-                    (knight_no_a<<17)|(knight_no_h<<15);
+                    (knight_no_a<<15)|(knight_no_h<<17)|
+    (knight_no_b<<6)                 |                 (knight_no_g<<10)|               
+    (knight_no_b>>10)                |                 (knight_no_g>>6)|
+                    (knight_no_a>>17)|(knight_no_h>>15);
     return move_mask;
 }
