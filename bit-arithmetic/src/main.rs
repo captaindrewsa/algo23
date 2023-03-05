@@ -1,4 +1,4 @@
-use bit_arithmetic::{knight_issue, knight_move, king_issue};
+use bit_arithmetic::{knight_issue, king_issue};
 
 
 

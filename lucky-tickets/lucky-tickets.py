@@ -15,4 +15,4 @@ def count_of_lucky_ticket(ticket_lenght):
 
 
 
-print("Count of lucky tickets: ", count_of_lucky_ticket(14))
+print("Count of lucky tickets: ", count_of_lucky_ticket(19))

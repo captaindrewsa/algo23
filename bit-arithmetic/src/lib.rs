@@ -26,7 +26,7 @@ pub fn king_issue(pos:u64){
     println!("{number_of_move}")
 }
 
-pub fn knight_move(pos: u64)-> u64{
+fn knight_move(pos: u64)-> u64{
 
     let knight_position = 1u64 << pos;
 
