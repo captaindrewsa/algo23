@@ -35,3 +35,32 @@ pub fn InsertionSort(vec: &Vec<u8>) -> Vec<u8>{
 
     return sorted_vec;
 }
+
+pub fn ShellSort(vec: &Vec<u8>) -> Vec<u8>{
+    /* 
+        Взять массив и разбить его на два по step == length//2;
+        идти по одному индексу и сравнивать два массива;
+        В конце опять разделить step//2 еще раз.
+        опять пройтись одним индексом по всем массивам.
+        Когда step//2 =0, сконкатенировать массивы в один 
+     */
+    let mut sorted_vector = vec.clone();
+    
+    let mut step: usize = vec.len()/2;
+    while step>0 {
+        for idx in 0..step{
+            /* Тут еще нужно вставить обратное уменьшение с сравнение, если все-таки произошла
+            замена. Как в InsertionSort */
+            if sorted_vector[idx]>sorted_vector[idx+step]{
+                let tmp = sorted_vector[idx];
+                sorted_vector[idx] = sorted_vector[idx+step];
+                sorted_vector[idx+step] = tmp;
+            } else {
+                continue;
+            }
+        }
+        step/=2;
+    }
+
+    return sorted_vector;
+}
