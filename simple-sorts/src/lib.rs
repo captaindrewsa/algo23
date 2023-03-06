@@ -1,5 +1,5 @@
 
-pub fn BubbleSort(vec: &Vec<i32>) -> Vec<i32>{
+pub fn BubbleSort(vec: &Vec<u8>) -> Vec<u8>{
     let mut sorted_vec = vec.clone();
     let mut max_non_sorted_idx = sorted_vec.len()-1;
     while max_non_sorted_idx>0 {
@@ -17,25 +17,19 @@ pub fn BubbleSort(vec: &Vec<i32>) -> Vec<i32>{
     return sorted_vec;
 }
 
-pub fn InsertionSort(vec: &Vec<i32>) -> Vec<i32>{
+pub fn InsertionSort(vec: &Vec<u8>) -> Vec<u8>{
     let mut sorted_vec = vec.clone();
-    let mut milestone_idx = 2;
-    while milestone_idx<sorted_vec.len()-1 {
-        
-        for idx in (0..milestone_idx).rev(){
-            if sorted_vec[milestone_idx]<=sorted_vec[milestone_idx-1]{
-                let tmp = sorted_vec[milestone_idx];
-                sorted_vec[milestone_idx] = sorted_vec[milestone_idx+1];
-                sorted_vec[milestone_idx+1] = tmp;
-                continue;
+    for mut mileidx in 1..sorted_vec.len(){
+        while mileidx>0 {
+            if sorted_vec[mileidx]<sorted_vec[mileidx-1]{
+                let tmp = sorted_vec[mileidx-1];
+                sorted_vec[mileidx-1] = sorted_vec[mileidx];
+                sorted_vec[mileidx] = tmp;
+                mileidx-=1;
             } else {
                 break;
             }
-            
         }
-        
-        
-        milestone_idx+=1;
     }
 
 
